@@ -14,6 +14,12 @@ description: >-
 
 Feed TWMD into backtests and trading platforms. **Not investment advice.** `export TWMD_API_KEY=sk_live_...`. Daily resolution only.
 
+## What you can fully do for the user
+- Wire TWMD into their exact framework: a backtrader feed, a vectorbt series, a zipline bundle, a LEAN PythonData class, or an MT5/MT4 custom-symbol export — as a complete runnable example, not a fragment.
+- Enforce backtest correctness: survivorship-bias-free universe (use delisted histories), point-in-time alignment, adjusted vs raw prices, realistic costs.
+- Set honest expectations (daily only; MT4 legacy → prefer MT5; platform APIs vary by version, treat MQL as a pattern).
+- Hand off factor logic to **twmd-quant-recipes**; CSV export/warehouse fallback to **twmd-integration**.
+
 ## Core: TWMD → OHLCV DataFrame (everything builds on this)
 ```python
 import os, requests, pandas as pd

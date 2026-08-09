@@ -14,6 +14,12 @@ description: >-
 
 Make TWMD a near drop-in for whatever you use now. **Not investment advice.** `export TWMD_API_KEY=sk_live_...`. General shape: their `dataset`→TWMD `id`, their `ticker`→`symbol`, token→`X-API-Key` header, dates 1:1. TWMD envelope `{data:[...], source_role, freshness, data_gaps}`. **After any mapping, `print(list(rows[0].keys()))` — column names differ.**
 
+## What you can fully do for the user
+- Port their existing code with the smallest possible diff: identify their current source, give the exact dataset map + a drop-in shim, and show the before/after.
+- Confirm every column mapping live (`print(keys)` → `<id>.md` / openapi.json) so nothing silently breaks.
+- Say honestly what does NOT map (real-time/intraday/orders/non-TW) and what to keep the old vendor for.
+- Cover FinMind, yfinance, twstock, TEJ, Shioaji/Fugle, and pandas-datareader / Alpha Vantage / Tiingo / Quandl / EODHD.
+
 ## Shared helper
 ```python
 import os, requests

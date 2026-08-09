@@ -16,6 +16,13 @@ description: >-
 
 Ready-to-run Taiwan-equity factor recipes on TWMD. **Not investment advice.** Assumes `export TWMD_API_KEY=sk_live_...`.
 
+## What you can fully do for the user
+- Build any factor end-to-end and hand a complete runnable script: growth (revenue YoY), flow (三大法人), value (PER/PBR/yield), quality, momentum, and multi-factor composites.
+- Screen/rank a universe cross-sectionally; z-score and combine signals.
+- Stand up a point-in-time-safe backtest that avoids look-ahead and survivorship bias.
+- Resolve exact field names live (llms.txt → `<id>.md` → openapi.json) before computing — never invent a column.
+- Hand off plumbing (pagination, async, warehouse, scheduling) to **twmd-integration**; framework wiring (backtrader/QuantConnect) to **twmd-backtesting-platforms**.
+
 ## Ground rules (state to the user, they matter for correct research)
 - **Confirm field names before computing.** This skill does not hard-code every dataset's field names — they differ per dataset. Each recipe prints `list(rows[0].keys())` first; pick the real field, or read the dataset's docs page markdown (`https://twmarketdata.com/en/datasets/<id>.md`) or `/openapi.json`.
 - **Point-in-time / no look-ahead.** Every row carries `knowledge_date` / `freshness`. Fundamentals (revenue, financials) are known only *after* their disclosure date — when backtesting, align a factor to the date it became known, not the fiscal period it describes. Never join a fiscal-period value onto a trading date earlier than its disclosure.

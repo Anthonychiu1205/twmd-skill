@@ -15,6 +15,13 @@ description: >-
 
 Wire TWMD into apps, pipelines, warehouses, any language. **Not investment advice.** Base `https://api.twmarketdata.com/v2/datasets/{id}`, header `X-API-Key: sk_live_...` (never in the URL). Envelope: `{ dataset, source_role, freshness, lineage.trace_id, data_gaps, data:[...] }`. Errors: **401** bad key (5 demo symbols exempt), **402** not entitled/quota → upgrade (don't retry), **429** rate/quota → back off, **5xx** transient → retry.
 
+## What you can fully do for the user
+- Generate a complete, production-grade client in their language (Python/JS/Go/C#/Java/Julia/Ruby/PHP/R) with retries, backoff, pagination.
+- Build a full ingestion pipeline: incremental daily pull → warehouse (DuckDB/Postgres/BigQuery/Snowflake) → dbt models, orchestrated by Airflow/Dagster.
+- Design the schema: natural keys, provenance columns, data_gaps side table, knowledge/disclosure date for point-in-time.
+- Diagnose 401/402/429 and make usage quota-friendly (incremental, capped concurrency, backoff).
+- Resolve exact params/fields live from `/openapi.json` and `<id>.md` — never guess a field.
+
 ## Robust Python client (session + retries + backoff)
 ```python
 import os, time, random, requests

@@ -14,6 +14,12 @@ description: >-
 
 Spreadsheets, dashboards, and agent tools. **Not investment advice.** **Never put the key in a shared cell/report** — use script properties / parameters / gateway credentials.
 
+## What you can fully do for the user
+- Get TWMD into their exact surface: an Excel Power Query, a Google Sheets function, a parameterized Power BI query, a Tableau-via-warehouse plan, or an agent tool — working, not a sketch.
+- Ship a runnable LangChain/LlamaIndex tool or a function-calling schema, plus dataset-discovery so the agent covers all 82 datasets and stays current.
+- Keep keys safe (script properties / parameters / gateway; never in a shared cell/report/URL).
+- Set the MCP expectation (preview) and use the shipped REST path; hand warehouse setup to **twmd-integration**.
+
 ## Excel — Power Query (sends X-API-Key header)
 Data → Get Data → Blank Query → Advanced Editor:
 ```m
