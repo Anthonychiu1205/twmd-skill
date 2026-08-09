@@ -29,6 +29,10 @@ npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-taiwa
 | twmd-taiwan-market-data | `twmd-taiwan-market-data` | Everyone / first time | Onboarding + full answer-desk: free tier, key → first data, 82-dataset → docs map, errors, command playbook |
 | twmd-quant-recipes | `twmd-quant-recipes` | Quants / researchers | Ready-to-run factor code: monthly-revenue YoY, 三大法人 flow momentum, valuation screen, multi-factor rank, point-in-time-safe backtest skeleton |
 | twmd-api-integration | `twmd-api-integration` | Engineers | Production client: retries/backoff on 429/5xx, pagination, incremental fetch, async, DataFrame/Parquet/SQL, Node/TS, key management |
+| twmd-migrate-from-finmind | `twmd-migrate-from-finmind` | FinMind users | FinMind→TWMD dataset map + drop-in shim (keep your FinMind call shape) |
+| twmd-migrate-from-yfinance | `twmd-migrate-from-yfinance` | yfinance users | `Ticker("2330.TW").history()`-shaped shim → swap one import |
+| twmd-backtrader-feed | `twmd-backtrader-feed` | Backtesters | backtrader PandasData feed (+ vectorbt/zipline notes), survivorship & PIT cautions |
+| twmd-mt5-bridge | `twmd-mt5-bridge` | MT5 users | TWMD daily bars → MT5 custom symbol (Python export + MQL5 import), honest scope |
 
 ```bash
 npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-quant-recipes"
