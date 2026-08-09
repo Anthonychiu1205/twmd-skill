@@ -33,6 +33,19 @@ npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-taiwa
 | twmd-migrate-from-yfinance | `twmd-migrate-from-yfinance` | yfinance users | `Ticker("2330.TW").history()`-shaped shim → swap one import |
 | twmd-backtrader-feed | `twmd-backtrader-feed` | Backtesters | backtrader PandasData feed (+ vectorbt/zipline notes), survivorship & PIT cautions |
 | twmd-mt5-bridge | `twmd-mt5-bridge` | MT5 users | TWMD daily bars → MT5 custom symbol (Python export + MQL5 import), honest scope |
+| twmd-migrate-from-tej | `twmd-migrate-from-tej` | TEJ users | TEJ table → TWMD map + tejapi.get-shaped shim |
+| twmd-migrate-from-twstock | `twmd-migrate-from-twstock` | twstock users | `Stock('2330').price`-shaped shim |
+| twmd-migrate-from-broker-apis | `twmd-migrate-from-broker-apis` | Shioaji / Fugle 富果 users | Replace historical fetch (keep broker for live/orders) |
+| twmd-r-quantmod | `twmd-r-quantmod` | R users | getSymbols/tq_get-style helper → xts / tibble |
+| twmd-excel-sheets | `twmd-excel-sheets` | Analysts / no-code | Excel Power Query + Google Sheets Apps Script |
+| twmd-warehouse-sql | `twmd-warehouse-sql` | Data engineers | Load to DuckDB / Postgres / BigQuery / Snowflake + incremental |
+| twmd-langchain-tool | `twmd-langchain-tool` | Agent builders | LangChain / LlamaIndex / function-calling tool (MCP is preview) |
+
+### Coverage & roadmap
+
+Shipped above: onboarding + quant recipes + engineering client + migrations from FinMind, yfinance, twstock, TEJ, broker APIs (Shioaji/Fugle), backtrader/vectorbt/zipline, MT5, R (quantmod/tidyquant), Excel/Sheets, SQL warehouses, and LLM-agent tooling.
+
+Next batch (open a PR/issue if you need one sooner): QuantConnect/Lean custom data, Power BI / Tableau (Web connector), Airflow / dbt / Dagster pipeline recipe, OpenBB provider extension, generic vendor swap (pandas-datareader / Alpha Vantage / Tiingo / Quandl), MT4, and R/Julia/Go/C# client stubs.
 
 ```bash
 npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-quant-recipes"
