@@ -40,12 +40,17 @@ npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-taiwa
 | twmd-excel-sheets | `twmd-excel-sheets` | Analysts / no-code | Excel Power Query + Google Sheets Apps Script |
 | twmd-warehouse-sql | `twmd-warehouse-sql` | Data engineers | Load to DuckDB / Postgres / BigQuery / Snowflake + incremental |
 | twmd-langchain-tool | `twmd-langchain-tool` | Agent builders | LangChain / LlamaIndex / function-calling tool (MCP is preview) |
+| twmd-openbb-provider | `twmd-openbb-provider` | OpenBB users | Quick Python path + OpenBB Platform provider-extension fetcher |
+| twmd-airflow-dbt | `twmd-airflow-dbt` | Data platforms | Airflow DAG + dbt sources/staging + Dagster asset, incremental |
+| twmd-quantconnect-lean | `twmd-quantconnect-lean` | QuantConnect/LEAN | PythonData custom data class + algorithm usage |
+| twmd-powerbi-tableau | `twmd-powerbi-tableau` | BI / dashboards | Power BI Power Query (M) + Tableau via warehouse |
+| twmd-migrate-data-vendors | `twmd-migrate-data-vendors` | Global-vendor users | Swap pandas-datareader / Alpha Vantage / Tiingo / Quandl / EODHD |
+| twmd-mt4-bridge | `twmd-mt4-bridge` | MT4 users | Legacy CSV/offline-chart path (prefer MT5) |
+| twmd-clients-multilang | `twmd-clients-multilang` | Go/C#/Java/Julia/Ruby/PHP | Minimal starter clients per language |
 
-### Coverage & roadmap
+### Coverage
 
-Shipped above: onboarding + quant recipes + engineering client + migrations from FinMind, yfinance, twstock, TEJ, broker APIs (Shioaji/Fugle), backtrader/vectorbt/zipline, MT5, R (quantmod/tidyquant), Excel/Sheets, SQL warehouses, and LLM-agent tooling.
-
-Next batch (open a PR/issue if you need one sooner): QuantConnect/Lean custom data, Power BI / Tableau (Web connector), Airflow / dbt / Dagster pipeline recipe, OpenBB provider extension, generic vendor swap (pandas-datareader / Alpha Vantage / Tiingo / Quandl), MT4, and R/Julia/Go/C# client stubs.
+Covers the common Taiwan-quant + developer ecosystem end to end: onboarding & answer-desk, quant factor recipes, production engineering client; **data-source migrations** from FinMind, yfinance, twstock, TEJ, broker APIs (Shioaji/Fugle), and global vendors (pandas-datareader / Alpha Vantage / Tiingo / Quandl / EODHD); **backtesting** (backtrader / vectorbt / zipline, QuantConnect/LEAN); **platforms** (MT5, MT4, Excel / Google Sheets, Power BI / Tableau); **data engineering** (SQL warehouses, Airflow / dbt / Dagster); **languages** (Python, JS/TS, R, Go, C#, Java, Julia, Ruby, PHP); and **AI agents** (LangChain / LlamaIndex / function-calling; MCP preview). Want another tool wired in? Open an issue.
 
 ```bash
 npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-quant-recipes"
