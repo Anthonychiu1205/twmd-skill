@@ -20,9 +20,23 @@ npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-taiwa
 
 > The skill lives in [`skills/twmd-taiwan-market-data/SKILL.md`](./skills/twmd-taiwan-market-data/SKILL.md). If your tool uses a different layout, just copy that `SKILL.md` into your agent's skills directory.
 
+## Skills in this repo
+
+`npx skills add` scans the `skills/` folder. Install all, or one by its **install name** (`--skill "<name>"`).
+
+| Skill (folder) | Install name | For | What it gives |
+| --- | --- | --- | --- |
+| twmd-taiwan-market-data | `twmd-taiwan-market-data` | Everyone / first time | Onboarding + full answer-desk: free tier, key → first data, 82-dataset → docs map, errors, command playbook |
+| twmd-quant-recipes | `twmd-quant-recipes` | Quants / researchers | Ready-to-run factor code: monthly-revenue YoY, 三大法人 flow momentum, valuation screen, multi-factor rank, point-in-time-safe backtest skeleton |
+| twmd-api-integration | `twmd-api-integration` | Engineers | Production client: retries/backoff on 429/5xx, pagination, incremental fetch, async, DataFrame/Parquet/SQL, Node/TS, key management |
+
+```bash
+npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-quant-recipes"
+```
+
 ## Or just paste it into your AI
 
-Copy the contents of [`SKILL.md`](./skills/twmd-taiwan-market-data/SKILL.md) into ChatGPT / Claude, then ask things like:
+Copy any skill's `SKILL.md` (under [`skills/`](./skills)) into ChatGPT / Claude, then ask things like:
 
 - "I've never used TWMD — walk me through getting my first Taiwan stock data."
 - "Show me TSMC's monthly revenue YoY."
