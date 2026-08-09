@@ -6,15 +6,23 @@ TW Market Data is the official-first Taiwan stock-market data API (TWSE / TPEx /
 
 ## Install as a skill
 
+The [`npx skills add`](https://github.com/vercel-labs/agent-skills) CLI scans the `skills/` folder in this repo:
+
 ```bash
-npx skills add Anthonychiu1205/twmd-skill
+npx skills add https://github.com/Anthonychiu1205/twmd-skill
 ```
 
-> The skill lives in [`SKILL.md`](./SKILL.md). If your tool uses a different skill layout, copy `SKILL.md` into your agent's skills directory.
+Or install just this skill by its install name (the `name:` in the SKILL frontmatter):
+
+```bash
+npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-taiwan-market-data"
+```
+
+> The skill lives in [`skills/twmd-taiwan-market-data/SKILL.md`](./skills/twmd-taiwan-market-data/SKILL.md). If your tool uses a different layout, just copy that `SKILL.md` into your agent's skills directory.
 
 ## Or just paste it into your AI
 
-Copy the contents of [`SKILL.md`](./SKILL.md) into ChatGPT / Claude, then ask things like:
+Copy the contents of [`SKILL.md`](./skills/twmd-taiwan-market-data/SKILL.md) into ChatGPT / Claude, then ask things like:
 
 - "I've never used TWMD — walk me through getting my first Taiwan stock data."
 - "Show me TSMC's monthly revenue YoY."
