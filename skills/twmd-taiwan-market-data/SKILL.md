@@ -229,4 +229,4 @@ Free → Starter ($20) → Pro ($100) → Max ($200) → Developer ($2000) → E
 - Never treat data_gaps as 0; never claim roadmap features are live; no investment advice.
 
 ## Help
-Dashboard feedback box, or **avenra.platform@gmail.com** (include account email, endpoint, request id/error, ticker/dataset, use case). Bulk / enterprise: same email.
+Dashboard feedback box, or **twmarketdata@gmail.com** (include account email, endpoint, request id/error, ticker/dataset, use case). Bulk / enterprise: same email.
