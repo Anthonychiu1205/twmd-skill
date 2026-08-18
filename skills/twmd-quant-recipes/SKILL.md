@@ -163,7 +163,7 @@ The single most important correctness rule. Align each fundamental to its **disc
 ## Where to confirm exact fields
 - Dataset docs (markdown): `https://twmarketdata.com/en/datasets/<id>.md`
 - OpenAPI (params + response schema): `https://twmarketdata.com/openapi.json`
-- Full index of all 82 datasets: `https://twmarketdata.com/llms.txt`
+- Full index of all 84 storefront datasets: `https://twmarketdata.com/llms.txt`
 
 ## Honesty
 Not investment advice. Backtests are not forward returns. Coverage/history are partial and per-dataset; verify before drawing conclusions. TWSE is the verified baseline; TPEx/adjusted prices are beta/deferred.

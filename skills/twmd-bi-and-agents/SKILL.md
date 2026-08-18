@@ -7,7 +7,7 @@ description: >-
   OpenAI/Anthropic function-calling), plus OpenBB. Use when the user wants TWMD in
   a spreadsheet/dashboard, or to give an AI agent/chatbot a Taiwan-market-data
   tool, or asks "TWMD in Excel/Sheets/Power BI/Tableau/LangChain/OpenBB." Never
-  embed the API key in a shared sheet/report. MCP is preview — REST is shipped.
+  embed the API key in a shared sheet/report. MCP is LIVE (mcp.twmarketdata.com); REST covers more datasets.
 ---
 
 # TWMD in BI tools & AI agents
@@ -16,9 +16,9 @@ Spreadsheets, dashboards, and agent tools. **Not investment advice.** **Never pu
 
 ## What you can fully do for the user
 - Get TWMD into their exact surface: an Excel Power Query, a Google Sheets function, a parameterized Power BI query, a Tableau-via-warehouse plan, or an agent tool — working, not a sketch.
-- Ship a runnable LangChain/LlamaIndex tool or a function-calling schema, plus dataset-discovery so the agent covers all 82 datasets and stays current.
+- Ship a runnable LangChain/LlamaIndex tool or a function-calling schema, plus dataset-discovery so the agent covers the whole storefront catalog (84) and stays current.
 - Keep keys safe (script properties / parameters / gateway; never in a shared cell/report/URL).
-- Set the MCP expectation (preview) and use the shipped REST path; hand warehouse setup to **twmd-integration**.
+- MCP is LIVE but serves a subset (85 of the REST catalogue's 125), so reach for REST when coverage matters; hand warehouse setup to **twmd-integration**.
 
 ## Excel — Power Query (sends X-API-Key header)
 Data → Get Data → Blank Query → Advanced Editor:
@@ -85,7 +85,7 @@ twmd_tool = FunctionTool.from_defaults(fn=twmd_query, name="twmd_query",
    "symbol":{"type":"string"},"limit":{"type":"integer"},"start_date":{"type":"string"},"end_date":{"type":"string"}},
    "required":["dataset"]}}
 ```
-Give the agent discovery: let it read `https://twmarketdata.com/llms.txt` (all ids) and `<id>.md` for fields. **MCP note**: TWMD's hosted MCP is **preview** — the shipped path is this REST tool with `X-API-Key`.
+Give the agent discovery: let it read `https://twmarketdata.com/llms.txt` (all ids) and `<id>.md` for fields. **MCP note**: TWMD's hosted MCP is **LIVE** at `mcp.twmarketdata.com` (server `tw-market-data`), exposing `list_datasets` / `describe_dataset` / `query_dataset` / `find_related`. It covers a SUBSET of the catalogue (85 vs the REST API's 125), so this REST tool with `X-API-Key` is still the wider path.
 
 ## OpenBB
 - **Quick**: call `twmd_query`/a small fetch inside your OpenBB workflow (works today).
