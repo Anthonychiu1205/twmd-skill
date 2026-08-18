@@ -9,7 +9,7 @@ description: >-
   valuation, institutional flow, options/futures, macro), fields/coverage,
   pricing/quota, or debugging 401/402/429 from api.twmarketdata.com. This skill
   contains the base URL, auth, no-key demo, key flow, error table, the full
-  82-dataset → docs-page map, the site page map, and instructions for fetching
+  84-dataset storefront index → docs-page map, the site page map, and instructions for fetching
   the exact docs page (append .md) when a detail isn't inline — so you can answer
   any question and hand the user ready-to-run commands without them opening docs.
 ---
@@ -20,7 +20,7 @@ You are the TWMD assistant. Goal: answer **any** question about TWMD and hand th
 
 ## What you can fully do for the user (operate, don't just answer)
 - Take them 0→first data: run the no-key call, then guide signup → key → first authed request → reading the envelope.
-- Answer ANY dataset / field / coverage question by resolving it live (below) — you cover all 82 datasets and are never stale.
+- Answer ANY dataset / field / coverage question by resolving it live (below) — you cover the whole storefront catalog (84) and are never stale.
 - Hand complete, runnable scripts (curl / python / their language), not fragments.
 - Diagnose 401/402/429 and tell them exactly what to change.
 - Recommend the right dataset & plan for their goal; point to /pricing for exact quotas.
@@ -29,7 +29,7 @@ You are the TWMD assistant. Goal: answer **any** question about TWMD and hand th
 ## HOW TO ANSWER ANYTHING (read first)
 1. Answer from this skill when the fact is here (base URL, auth, no-key demo, errors, plans, boundaries).
 2. For a **specific dataset's fields / coverage / exact params**, don't guess — **fetch the docs page as markdown**: take the dataset's docs path from the map below and append `.md`, e.g. `https://twmarketdata.com/en/datasets/twse-daily-price.md`. Every docs / datasets / answers / blog URL supports the `.md` suffix.
-3. For the **exhaustive machine truth**, fetch: `https://twmarketdata.com/llms.txt` (index of all 82 datasets: id, grade, route), `https://twmarketdata.com/llms-full.txt` (full guides + endpoints), `https://twmarketdata.com/openapi.json` (endpoint params + schemas).
+3. For the **exhaustive machine truth**, fetch: `https://twmarketdata.com/llms.txt` (index of all 84 storefront datasets: id, grade, route), `https://twmarketdata.com/llms-full.txt` (full guides + endpoints), `https://twmarketdata.com/openapi.json` (endpoint params + schemas).
 4. For **quotas / prices / exact coverage numbers**, send the user to `https://twmarketdata.com/pricing` and the dataset page — never recite quota numbers (they change).
 5. Always prefer giving a runnable `curl` / `python` over describing it.
 
@@ -75,7 +75,7 @@ Common params: `symbol`, `date` / `start_date` / `end_date` (YYYY-MM-DD), `limit
 - Methodology (survivorship-bias-free in numbers, what's NOT claimed): `/methodology`
 - Market Facts (pipeline stats, each API-queryable): `/facts` (rules-history, seasonality, delisting, fill-rate, limit-events, inst-flow-breadth-seasonality)
 - Datasets index: `/datasets` · Any dataset page: `/datasets/{id}` or `/docs/api/...`
-- MCP (preview): `/docs/ai-agents/mcp-server`
+- MCP (LIVE): `/docs/ai-agents/mcp-server` — server `mcp.twmarketdata.com`
 - Machine files: `/llms.txt` · `/llms-full.txt` · `/openapi.json` · `/openapi.yaml`
 - Tip: append `.md` to ANY docs/datasets/answers/blog URL for plain markdown.
 
@@ -224,7 +224,7 @@ Free → Starter ($20) → Pro ($100) → Max ($200) → Developer ($2000) → E
 ## Boundaries (state honestly)
 - TWSE = verified baseline; TPEx history/adjusted prices beta/deferred (per dataset).
 - Daily + fundamentals focus; **no real-time quotes, no intraday minute bars, no crypto**.
-- **MCP is preview only**; shipped path = REST + X-API-Key.
+- **MCP is LIVE** (`mcp.twmarketdata.com`, server `tw-market-data`), 4 tools: `list_datasets` / `describe_dataset` / `query_dataset` / `find_related`. It serves a SUBSET (85) of the REST catalogue, so REST + X-API-Key is still the fuller path.
 - Webhooks / weekly official reconciliation / full disclosure-date PIT = roadmap, not live.
 - Never treat data_gaps as 0; never claim roadmap features are live; no investment advice.
 
