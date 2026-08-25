@@ -7,20 +7,20 @@ TW Market Data is the official-first Taiwan stock-market data API (TWSE / TPEx /
 ## Install
 
 ```bash
-npx skills add https://github.com/Anthonychiu1205/twmd-skill
+npx skills add https://github.com/TW-Market-Data/twmd-skill
 ```
 
 Install one by its install name:
 
 ```bash
-npx skills add https://github.com/Anthonychiu1205/twmd-skill --skill "twmd-migrations"
+npx skills add https://github.com/TW-Market-Data/twmd-skill --skill "twmd-migrations"
 ```
 
 ## Skills (6)
 
 | Skill | Install name | For | What it gives |
 | --- | --- | --- | --- |
-| Onboarding / answer-desk | `twmd-taiwan-market-data` | Everyone / first time | Free tier, key → first data, 84-dataset storefront index → docs map, errors, command playbook |
+| Onboarding / answer-desk | `twmd-taiwan-market-data` | Everyone / first time | Free tier, key → first data, full dataset index → docs map, errors, command playbook |
 | Quant recipes | `twmd-quant-recipes` | Quants / researchers | Factor code: monthly-revenue YoY, 三大法人 flow, valuation screen, multi-factor rank, point-in-time-safe backtest |
 | Integration | `twmd-integration` | Engineers | Production client (retries/backoff/pagination/async), warehouses (DuckDB/Postgres/BigQuery/Snowflake), Airflow/dbt/Dagster, clients in Go/C#/Java/Julia/Ruby/PHP/R |
 | Migrations | `twmd-migrations` | Switching vendors | Drop-in shims for FinMind, yfinance, twstock, TEJ, broker APIs (Shioaji/Fugle), pandas-datareader / Alpha Vantage / Tiingo / Quandl / EODHD |
@@ -46,10 +46,37 @@ curl "https://api.twmarketdata.com/v2/datasets/twse-daily-price?symbol=2330&limi
 
 5 symbols work with no key: 2330, 2317, 2454, 0050, 2603.
 
+## Or skip the HTTP entirely
+
+**Python + CLI**
+
+```bash
+pip install twmarketdata
+
+twmd datasets --free-only
+twmd get monthly_revenue --ticker 2330 --as-of 2024-06-30 --format csv
+```
+
+Omit `--as-of` and you get the latest revision — including values revised after the date you are
+reasoning about. The CLI says so on stderr, because for a backtest that is a look-ahead leak and
+the response otherwise looks completely normal.
+
+**Agents — MCP**
+
+`https://mcp.twmarketdata.com/mcp` — 34 tools. The catalogue, glossary, point-in-time methodology,
+standards mapping, benchmark method and coverage windows all read with **no key at all**; the five
+sample symbols above answer with no plan. Querying beyond those starts at the Pro plan, and
+upgrading uses the same email you signed in with — no reconnect.
+
+Full tool list and connection steps:
+[TW-Market-Data/tw-market-data-mcp](https://github.com/TW-Market-Data/tw-market-data-mcp).
+
 ## Links
 
-- Site: https://twmarketdata.com · Pricing: https://twmarketdata.com/pricing · Dashboard: https://twmarketdata.com/dashboard
+- Site: https://twmarketdata.com · Pricing: https://twmarketdata.com/en/pricing · Dashboard: https://twmarketdata.com/dashboard
 - Machine files: https://twmarketdata.com/llms.txt · https://twmarketdata.com/llms-full.txt · https://twmarketdata.com/openapi.json
+- Python SDK + CLI: [TW-Market-Data/twmarketdata](https://github.com/TW-Market-Data/twmarketdata) · [PyPI](https://pypi.org/project/twmarketdata/)
+- MCP server: [TW-Market-Data/tw-market-data-mcp](https://github.com/TW-Market-Data/tw-market-data-mcp)
 
 ## License
 
